@@ -25,12 +25,26 @@ pip install -e ".[ocr,pdf]"
 ```
 
 Системные зависимости:
-```bash
-# OCR (pytesseract)
-sudo apt install tesseract-ocr tesseract-ocr-rus
 
-# PDF (pdf2image)
-sudo apt install poppler-utils
+```bash
+# Ubuntu / Debian
+sudo apt install tesseract-ocr tesseract-ocr-rus poppler-utils
+```
+
+```bash
+# Fedora / RHEL / CentOS
+sudo dnf install tesseract tesseract-langpack-rus poppler-utils
+```
+
+```powershell
+# Windows — установить Tesseract вручную:
+#   https://github.com/UB-Mannheim/tesseract/wiki
+#   (добавить русский язык при установке)
+#
+# PDF: poppler (через chocolatey или вручную)
+#   choco install poppler
+#
+# Или через Windows Subsystem for Linux (WSL) — см. Ubuntu выше
 ```
 
 ## Использование
