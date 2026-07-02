@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ascii-vision"
+version = "0.2.0"
+description = "Convert images to super large ASCII art for LLM recognition"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = []
+authors = [
+    {name = "Nikita Startsev"}
+]
+keywords = ["ascii", "art", "vision", "llm", "ocr", "image"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "Pillow>=10.0",
+]
+
+[project.optional-dependencies]
+ocr = ["pytesseract"]
+pdf = ["pdf2image"]
+
+[project.scripts]
+ascii-vision = "ascii_vision.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ascii_vision*"]
