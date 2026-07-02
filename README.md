@@ -47,6 +47,24 @@ sudo dnf install tesseract tesseract-langpack-rus poppler-utils
 # Или через Windows Subsystem for Linux (WSL) — см. Ubuntu выше
 ```
 
+## Интеграция с opencode
+
+Навык для [opencode](https://github.com/anomalyco/opencode) — LLM сможет «видеть» изображения через ASCII-арт.
+
+```bash
+# 1. Скопировать файлы навыка
+cp skill/SKILL.md skill/LLM_PROMPT.md skill/USAGE.md \
+   ~/.config/opencode/skills/ascii_vision/
+
+# 2. Установить пакет (после pip install -e .)
+python -m ascii_vision.cli --help
+
+# 3. В сессии opencode попросить:
+#    «Проанализируй схему diagram.png»
+```
+
+После этого навык `ascii_vision` появится в списке доступных — LLM будет автоматически вызывать его при запросах анализа изображений.
+
 ## Использование
 
 ```bash
