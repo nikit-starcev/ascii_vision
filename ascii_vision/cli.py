@@ -441,7 +441,7 @@ def annotate_ascii(
     scale_x = width / orig_w
     scale_y = height / orig_h
 
-    blocks = run_ocr_with_positions(image_path, lang=ocr_lang)
+    blocks = _get_cached_ocr(image_path, ocr_lang=ocr_lang)
     if blocks is None:
         return "[pytesseract not available]"
     if not blocks:
@@ -493,7 +493,7 @@ def annotate_and_merge(
     scale_x = width / orig_w
     scale_y = height / orig_h
 
-    blocks = _get_cached_ocr(image_path, lang=ocr_lang)
+    blocks = _get_cached_ocr(image_path, ocr_lang=ocr_lang)
     if blocks is None:
         return ascii_art
     if not blocks:
